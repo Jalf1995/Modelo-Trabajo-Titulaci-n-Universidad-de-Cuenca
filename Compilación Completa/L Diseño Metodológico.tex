@@ -1,0 +1,7 @@
+\section{Diseño Metodológico(Ejemplo)}
+\subsection{Recolección de Datos}
+Vamos a formar el universo de alternativas de inversión por medio de $49$ portafolios ponderados por valor de industrias americanas como representantes de los instrumentos de renta variable o activos-riesgosos y un Bono del Tesoro al mes, como representante del activo-sin-riesgo $rf$, todos los datos con respecto a estas alternativas son rescatadas del repositorio de Kenneth French, ver también la Tabla (\ref{Tabla 1M}) para una descripción preliminar. La muestra de retornos históricos para estimar medias, varianzas individuales y las covarianzas entre los portafolios de industria está condicionada a 600 meses de datos de retornos simples $\bar{r}_{i,t}$ que cubren el período desde enero de 1972 hasta enero de 2022.\input{Ejemplo Tablas/Tabla1Ejemplo.tex}
+
+El mayor reto que se presentó en el proceso de recolección de datos, trata sobre las implicaciones de los resultados empíricos de las distribuciones de los retornos históricos, pues ninguna distribución de $i$ portafolio de industria pasó la prueba de normalidad \textbf{Wilk-Shapiro}, ver los resultados numéricos en la Tabla (\ref{TablaEst}) y ver también la figura (\ref{Distribuciones}). A pesar de haber convertido los retornos simples en retornos compuestos continuos, las distribuciones aun mantuvieron un grado estadísticamente significativo de sesgo y curtosis.\input{Ejemplo Tablas/Tabla2Ejemplo.tex}\input{Ejemplo Gráfico/Grafico1Ejemplo.tex}
+
+\newpage

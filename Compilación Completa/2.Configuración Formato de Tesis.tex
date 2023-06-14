@@ -1,0 +1,107 @@
+%Configuración idioma
+\selectlanguage{spanish}
+%Configuración para de la portada
+\newenvironment{espaciodoble}
+{\begin{spacing}{2}}
+{\end{spacing}}
+
+\newenvironment{espaciosimple}
+{\begin{spacing}{1}}
+{\end{spacing}}
+
+%Configuración del índice
+\addto\captionsspanish{\renewcommand{\appendixname}{Anexo}}
+
+\addto\captionsspanish{\renewcommand{\refname}{\textbf{Referencias}}}
+
+%Configuración sobre logo de U Cuenca en cada página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\resizebox{!}{.7cm}{\includegraphics{Imagenes/logo-UCuenca-JPG.jpg}}}
+\fancyhead[R]{\thepage}
+
+%Configuración sobre pie de página
+\fancyfoot[L]{Autor A - Autor B}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\footrule}{\textcolor[HTML]{4F81BD}{\makebox[\textwidth][s]{\rule[6pt]{\linewidth+2pt}{.8pt}}}}
+
+%Configuración sobre páginas con orientación horizontal
+\DeclareNewLayer[
+  background,
+  textarea,
+  addhoffset=-14.7cm, 
+  height=\dimexpr\footskip+\footheight\relax,  voffset=\dimexpr--2.6cm-\footskip\relax, 
+  contents={\hfill\rotatebox{90}{\pagemark}\hspace*{\headsep}}]{lscape.head}
+
+\DeclareNewLayer[
+  foreground, 
+  textarea,
+  addhoffset=16.85cm,
+  height=\dimexpr\footskip+\footheight\relax,  
+  voffset=\dimexpr--16.55cm-\footskip\relax,  
+  contents={\rotatebox{90}{Autor A - Autor B}}, 
+]{lscape.namefoot}
+
+\DeclareNewLayer[
+  foreground, 
+  textarea,
+  addhoffset=16.6cm,
+  height=\dimexpr\footskip+\footheight\relax,  voffset=\dimexpr-\paperheight+\paperheight-5.0cm-\footskip\relax, 
+  contents={\textcolor[HTML]{4F81BD}{\rotatebox{90}{\rule{24.5cm}{0.4pt}}}},  
+]{lscape.namefoot2}
+
+
+\DeclareNewLayer[
+  foreground, 
+  textarea,
+  addhoffset=-1.3cm,  
+  height=\dimexpr\footskip+\footheight\relax,  
+  voffset=\dimexpr-\paperheight+\paperheight--16.1cm-\footskip\relax, 
+  contents={\includegraphics[width=3.4cm,height=.7cm,angle=90]{Imagenes/logo-UCuenca-JPG.jpg}}, 
+]{lscape.namefoot3}
+
+\DeclareNewPageStyleByLayers{lscape}{lscape.head,lscape.namefoot,lscape.namefoot2, lscape.namefoot3}
+
+%Configuraciones misceláneas
+\setlength{\baselineskip}{1.5cm}
+
+\justifying
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\makeatletter
+\xpatchcmd{\appendix}
+  {\par}
+  {\addcontentsline{toc}{section}{\@currentlabelname}\par}
+  {}{}
+\makeatother
+
+\makeatletter
+\renewcommand{\maketitle}{
+    
+    \thispagestyle{empty} 
+}
+
+\makeatother
+
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+
+\lstdefinestyle{mystyle}{ 
+  basicstyle=\ttfamily\footnotesize,
+  commentstyle=\color{codegreen},
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=false,                    
+  keepspaces=true,                 
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
